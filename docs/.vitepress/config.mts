@@ -2,10 +2,12 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: "zh-CN",
   title: "赫利俄斯的AI实验室",
   description: "一个分享传统编程与AIGC应用的科普博客",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    i18nRouting: false,
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
