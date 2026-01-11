@@ -7,7 +7,7 @@ import { data as posts } from '../.vitepress/posts.data.js'
 const toolsPosts = posts?.tools || []
 </script>
 
-欢迎来到工具与框架应用页面，这里汇集了各种开发工具、框架和库的使用教程。
+欢迎来到工具与框架应用页面，这里汇集了各种开发工具、框架和库的使用教程，包括 Git 版本控制、Docker 容器化、SSH 安全连接等。
 
 ## 文章列表
 
@@ -22,4 +22,4 @@ const toolsPosts = posts?.tools || []
 
 ## 简介
 
-本专题介绍各种开发工具、框架和库的使用方法，包括 FFmpeg、CUDA、RabbitMQ 等，助力高效开发。
+本专题介绍各种开发工具、框架和库的使用方法，包括 Git 版本控制、Docker 容器化、SSH 安全连接、FFmpeg 多媒体处理、CUDA 并行计算等，助力高效开发。

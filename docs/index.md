@@ -8,11 +8,11 @@ hero:
   tagline: 探索前沿技术，分享编程心得
   actions:
     - theme: brand
-      text: 浏览AI文章
-      link: /ai/
+      text: 最新文章
+      link: /blog/
     - theme: alt
-      text: 查看编程技术
-      link: /cpp/
+      text: 热门话题
+      link: /topics/
 
 features:
   - title: AI技术探索
@@ -23,8 +23,20 @@ features:
     details: 涵盖C++、Python、数据库、Linux系统管理等传统编程技术，提供实用的开发技巧和最佳实践。
     link: /cpp/
     linkText: 查看编程技术
+  - title: 数据库技术
+    details: 深入探讨各种数据库技术，包括MySQL、PostgreSQL等关系型数据库，以及NoSQL数据库的设计、优化和管理。
+    link: /database/
+    linkText: 查看数据库文章
+  - title: 图形与多媒体技术
+    details: 介绍FFmpeg多媒体处理、CUDA并行计算、OpenCV图像处理等技术，涵盖音视频编解码、图像处理算法等。
+    link: /graphics/
+    linkText: 查看图形技术文章
+  - title: Linux系统管理
+    details: 涵盖Linux系统管理、运维、Shell脚本编写等内容，提供实用的系统管理和运维技巧。
+    link: /linux/
+    linkText: 查看Linux文章
   - title: 工具与框架应用
-    details: 介绍各种开发工具、框架和库的使用方法，包括FFmpeg、CUDA、RabbitMQ等，助力高效开发。
+    details: 介绍各种开发工具、框架和库的使用方法，包括Git版本控制、Docker容器化、FFmpeg多媒体处理、CUDA并行计算等，助力高效开发。
     link: /tools/
     linkText: 查看工具教程
 ---

@@ -9,91 +9,189 @@ export default defineLoader({
     const { createContentLoader } = await import('vitepress')
     
     // 为 ai 目录创建内容加载器
-    const aiLoader = createContentLoader('ai/**/*.md', {
+    const aiLoader = createContentLoader(['ai/**/*.md', '!ai/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
 
-    const cppLoader = createContentLoader('cpp/**/*.md', {
+    const cppLoader = createContentLoader(['cpp/**/*.md', '!cpp/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
 
-    const toolsLoader = createContentLoader('tools/**/*.md', {
+    const toolsLoader = createContentLoader(['tools/**/*.md', '!tools/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
 
-    const databaseLoader = createContentLoader('database/**/*.md', {
+    const databaseLoader = createContentLoader(['database/**/*.md', '!database/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
 
-    const linuxLoader = createContentLoader('linux/**/*.md', {
+    const linuxLoader = createContentLoader(['linux/**/*.md', '!linux/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
 
-    const graphicsLoader = createContentLoader('graphics/**/*.md', {
+    const graphicsLoader = createContentLoader(['graphics/**/*.md', '!graphics/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
 
-    const gitLoader = createContentLoader('git/**/*.md', {
+    const aboutLoader = createContentLoader(['about/**/*.md', '!about/index.md'], {
       includeSrc: true,
       render: true,
-      excerpt: true
+      excerpt: true,
+      transform: (data) => {
+        return data.map(item => {
+          if (item.relativePath) {
+            const stat = require('fs').statSync(require('path').resolve('docs/' + item.relativePath));
+            return {
+              ...item,
+              fileCreatedAt: stat.birthtime,
+              fileModifiedAt: stat.mtime
+            };
+          }
+          return item;
+        });
+      }
     })
-    
+
     const aiData = await aiLoader.load()
     const cppData = await cppLoader.load()
     const toolsData = await toolsLoader.load()
     const databaseData = await databaseLoader.load()
     const linuxData = await linuxLoader.load()
     const graphicsData = await graphicsLoader.load()
-    const gitData = await gitLoader.load()
-    
+    const aboutData = await aboutLoader.load()
+
     return {
       ai: (aiData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       })),
       cpp: (cppData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       })),
       tools: (toolsData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       })),
       database: (databaseData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       })),
       linux: (linuxData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       })),
       graphics: (graphicsData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       })),
-      git: (gitData || []).map(item => ({
+      about: (aboutData || []).map(item => ({
         ...item,
         url: item.url,
-        title: item.frontmatter.title || extractTitleFromFilename(item.url)
+        title: item.frontmatter.title || extractTitleFromFilename(item.url),
+        date: item.frontmatter.date || item.fileCreatedAt
       }))
     }
   }
