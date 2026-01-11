@@ -39,7 +39,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 22
           cache: npm # 或 pnpm / yarn
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -51,6 +51,15 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/.vitepress/dist
+      # ====== 关键：失败时上传 npm debug 日志 ======
+      - name: Upload npm debug log on failure
+        if: failure() && env.NPM_CONFIG_LOGLEVEL != 'silent'
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-debug-log
+          path: |
+            /home/runner/.npm/_logs/*.log
+            !/home/runner/.npm/_logs/  # 避免空目录报错（可选）
 
   # 部署工作
   deploy:
