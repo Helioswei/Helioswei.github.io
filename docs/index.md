@@ -1,6 +1,9 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: "赫利俄斯的AI实验室 - 专注AI与编程技术分享"
+description: "分享传统编程与AIGC应用的科普博客，涵盖AI技术、C++编程、数据库管理、图形学技术、Linux系统管理等"
+image: "/images/avatar.jpeg"
 
 hero:
   name: "赫利俄斯的AI实验室"

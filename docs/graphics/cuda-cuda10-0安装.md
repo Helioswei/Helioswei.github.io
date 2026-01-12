@@ -138,7 +138,7 @@ source /etc/profile
 
 ![图片15.png](/images/cuda/图片15.png)
 
-<font color="red">**注意**</font>
+⚠️ **注意**
 
 `1,千万不要重复安装显卡驱动，会导致系统损坏`
 

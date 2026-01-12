@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# 优先收录重要目录
+Crawl-delay: 1
+
+# 禁止访问的目录
+Disallow: /.vitepress/
+Disallow: /node_modules/
+Disallow: /.git/
+
+# 站点地图
+Sitemap: https://helioswei.github.io/sitemap.xml
+
+# 针对不同搜索引擎的特殊设置
+User-agent: Googlebot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandexbot
+Allow: /

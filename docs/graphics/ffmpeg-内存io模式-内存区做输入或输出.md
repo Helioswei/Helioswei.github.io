@@ -34,7 +34,7 @@ date: 2020-10-14 15:03:21
 
 ### ffmpeg内存读取数据
 
-​	如图,<font color="red">红色框</font>内是当输入是流时的处理，<font color="green">绿色框</font>内是当输入是文件时的处理，二选一即可。![input.png](/images/ffmpeg/stream/input.png)
+如图，**红色框**内是当输入是流时的处理，**绿色框**内是当输入是文件时的处理，二选一即可。![input.png](/images/ffmpeg/stream/input.png)
 
 `fill_iobuffer` 函数是我们自己实现的输入流的函数，内容如下：
 
@@ -64,7 +64,7 @@ date: 2020-10-14 15:03:21
 
 ### ffmpeg内存存储数据
 
-​	如图,<font color="red">红色框</font>内是当输入是流时的处理，<font color="green">绿色框</font>内是当输入是文件时的处理，二选一即可。![output.png](/images/ffmpeg/stream/output.png)
+如图，**红色框**内是当输入是流时的处理，**绿色框**内是当输入是文件时的处理，二选一即可。![output.png](/images/ffmpeg/stream/output.png)
 
 `write_buffer` 函数是我们自己实现的输出流的函数，内容如下：
 
